@@ -25,3 +25,20 @@
 # 명령어
 `react에서 router를 사용하기위한 dom 설치`
 npm install react-router-dom
+
+# 코드설명
+`Link 사용법`
+<Link to ={`/day/${day.day}`}>Day {day.day}</Link>
+
+<Link> Tag는 와 Html의 <a> Tag와 같습니다.
+to=는 path와 같습니다.
+
+to에 변수값을 넣고 사용할때는 ''(single quotation) - 싱글코우테이션이 아닌 ``(Grave) - 그레이브로 유의해서 사용합니다.
+
+`useParams 사용법`
+- url에 포함된 값을 얻을때는 react-router-dom에서 제공하는 useParams Hook을 사용합니다.
+import { useParams } from "react-router-dom";
+
+/day/:day 콜론을 붙여서 사용합니다.
+
+<Route path="/day/:day" element={<Day/>}></Route>

@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
     return (
         <div className="header">
-            <h1>
-                <a href="/">토익 영단어(고급)</a>
-            </h1>
+            <h1>토익 영단어(고급)</h1>
             <div className="menu">
+                <Link className="link" to="/">뒤로가기</Link>
                 <a href="/" className="link">
                     단어 추가
                 </a>
