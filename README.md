@@ -20,11 +20,27 @@
     <Route path="/passenger" element={<Passenger />} />
 </Routes>
 
+# 설명
+`REST API란`
+- Create : POST
+- Read : GET
+- Update : PUT
+- Delete : DELETE
 
+# React Hook 
+`useEffect();`
+설명 참고 : https://xiubindev.tistory.com/100
 
 # 명령어
 `react에서 router를 사용하기위한 dom 설치`
-npm install react-router-dom
+sudo npm install react-router-dom
+
+`작은 프로젝트 or 개인 프로젝트 할때 Api 생성`
+빠르고 쉽게 rest api 구축
+sudo npm install -g json-server
+- 사용법: 
+json-server --watch [경로] --port [portNumber]
+ex) json-server --watch ./src/db/data.json --port 3001
 
 # 코드설명
 `Link 사용법`
@@ -42,3 +58,17 @@ import { useParams } from "react-router-dom";
 /day/:day 콜론을 붙여서 사용합니다.
 
 <Route path="/day/:day" element={<Day/>}></Route>
+
+`잘못된 url로 접근시`
+<Route path="/" element={<DayList/>}></Route>
+<Route path="/day/:day" element={<Day/>}></Route>
+<Route path ="*" element={<EmptyPage/>}></Route>
+- 잘 작동하는 url의 가장 하단부에 위와같이 명시해준다.
+위치가 상단에 있을경우 url이 최상단에 위치한 component가 작동합니다.
+
+`var, let, const 차이점`
+- var 로 선언한 변수는 동일한 이름으로 여러 번 중복해서 선언이 가능함. 이와 같은 경우, 마지막에 할당된 값이 변수에 저장됨. 
+
+- var 와 다르게 let 은 해당 변수가 이미 선언되었다는 에러 메시지가 출력됨. 이처럼 중복 선언이 불가능함.
+
+- let 과 const 의 차이점은 immutable 의 여부임. let 은 변수에 다른 값을 재할당할 수 있지만, const 는 재할당 시 에러 메시지가 출력됨. 이처럼 const 는 constant(상수)를 뜻하기 때문에 한 번만 선언이 가능하며 값을 바꿀 수도 없음 

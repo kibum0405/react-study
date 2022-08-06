@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<DayList/>}></Route>
             <Route path="/day/:day" element={<Day/>}></Route>
-            <Route path ="*" element={<EmptyPage/>}></Route>
+            <Route path ='/*' element={<EmptyPage/>}></Route>
           </Routes>
       </div>
     </BrowserRouter>

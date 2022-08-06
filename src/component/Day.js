@@ -1,21 +1,32 @@
-import dummy from "../db/data.json"
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+import Word from "./Word";
 
 export default function Day() {
-    var { day } = useParams();
-    var wordList = dummy.words.filter(word => word.day === Number(day));
+    const { day } = useParams();
+    const [words, setWords] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:3001/words?day=${day}`)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setWords(data);
+            })
+    }, [day]);
 
     return (
         <>
             <h2>Day {day}</h2>
             <table>
                 <tbody>
-                    {wordList.map(word => (
-                        <tr key={word.id}>
-                            <td>{word.eng}</td>
-                            <td>{word.kor}</td>
-                        </tr>
+                <th>영어</th>
+                <th>한국어</th>
+                <th>일본어</th>
+                    {words.map(word => (
+                        <Word word={word} key={word.id}></Word>
                     ))}
                 </tbody>
             </table>
